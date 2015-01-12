@@ -1,4 +1,4 @@
 module.exports = {
-	firebaseUrl: 'https://toilet-monitor.firebaseIO-demo.com/'
+	firebaseUrl: 'https://toilet-monitor.firebaseio.com'
 
 }
