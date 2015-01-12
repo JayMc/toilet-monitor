@@ -6,20 +6,29 @@ var app = express();
 app.use(bodyParser.json());
 
 //Firebase references
+//The current visit
 var Firebase = require('firebase');
 var visitRef = new Firebase(config.firebaseUrl+'/visit');
-
+//Past visits
 var Firebase = require('firebase');
 var visitsRef = new Firebase(config.firebaseUrl+'/visits');
 
-
 //Express routes
-
 //Receives IOT data
 app.post('/', function (req, res) {
-    console.log(req.body)
-    
-    res.sendStatus(200);
+
+    //set current visit with new data (all connected clients will be updated instantly)
+    visitRef.set({
+    	lightOn: req.body.lightOn
+    })
+
+    //push into past visits
+    visitsRef.push({
+    	lightOn: req.body.lightOn,
+    	date: Date.now()
+    })
+
+    return res.json(200)
 });
 
 
@@ -35,6 +44,6 @@ var server = app.listen(7777, function () {
     var host = server.address().address;
     var port = server.address().port;
 
-    console.log('Listening at http://%s:%s', host, port)
+    console.log('Listening at http://localhost:'+port)
 });
 
