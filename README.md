@@ -21,14 +21,13 @@ node app.js
 Firebase: https://www.firebase.com
 
 ## Frontend TODO
-Angular (1.3) provides frontend with 
-
-AngularJS http://angularjs.org
+AngularJS (1.3) http://angularjs.org
 
 ## Android TODO
 Ionic with Android and Firebase library
 
-To start ionic server Android/toilet-monitor/ionic serve
+To start ionic server
+ - Android/toilet-monitor/ionic serve
 
 # IOT Traffic
 Arduino  >--HTTP POST data--> Node.js Server <--Websocket--> Firebase
@@ -47,6 +46,6 @@ Client Downloads Angular Frontend once at begining of visit from Node.js Server
 
 	- Tweets
 	- 2-way communication via websockets with IOT
-		- LED matrix control (leads to colabritive games and drawing)
+		- LED matrix control (leads to collaborative games and drawing)
 		- play music
 
