@@ -2,12 +2,17 @@ angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $firebase) {
 
+  //current visit
   var visitRef = new Firebase('https://toilet-monitor.firebaseio.com/visit');
+  var syncVisit = $firebase(visitRef);
+  var syncObject = syncVisit.$asObject();
+  syncObject.$bindTo($scope, "visit");
+  
   //Past visits
   var visitsRef = new Firebase('https://toilet-monitor.firebaseio.com/visits');
 
-  var sync = $firebase(visitsRef);
-  $scope.visits = sync.$asArray();
+  var syncVisits = $firebase(visitsRef);
+  $scope.visits = syncVisits.$asArray();
 
   // Form data for the login modal
   $scope.loginData = {};
