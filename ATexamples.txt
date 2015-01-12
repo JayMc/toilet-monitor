@@ -1,0 +1,72 @@
+1.) Reset Module
+AT+RST
+
+2.) Join Access Point (Internet Router)
+AT+CWMODE=1
+AT+CWJAP="boo",""
+
+3.) Connec to website
+AT+CIPSTART="TCP","192.168.1.107",80
+
+4.) Specify number of bytes you'll send
+
+AT+CIPSEND=81\r\n
+
+AT+CIPSEND=154\r\n
+
+
+5.) Send GET Request
+
+GET /receiver.php?apples=56&oranges=23 HTTP/1.1\r\nHost: esp8266.allaboutee.com\r\n\r\n
+GET /receiver.php?apples=56&oranges=23 HTTP/1.1\r\nHost: esp8266.allaboutee.com
+
+5.) send POST Request
+POST /receiver.php HTTP/1.1\r\nHost: esp8266.allaboutee.com\r\nContent-Type: application/x-www-form-urlencoded\r\nCon­tent-Length: 20\r\n\r\napples=12&oranges=45\r\n\r­\n
+
+
+
+AT+CIPSTART="TCP","192.168.1.107",80
+
+AT+CIPSEND=15
+
+GET / HTTP/1.1\r\n
+GET / HTTP/1.1\r\n\r\n  //not needed
+
+AT+CIPSEND=46
+GET / HTTP/1.1\r\nHost: localhost\r\nUser-Agent: test\r\n\r\n
+
+AT+CIPSEND=34
+GET / HTTP/1.0\r\nHost: 192.168.1.107
+
+AT+CIPCLOSE
+
+
+
+AT+CIPSTART="TCP","128.199.135.154",7373
+AT+CIPSEND=18
+GET /api HTTP/1.1\r\n
+
+AT+CIPSEND=57
+GET /api HTTP/1.1\r\nContent-Type:application/json \r\nConnection: close\r\n
+
+POST / HTTP/1.0\r\nContent-Type:application/json \r\nConnection: close\r\nContent-Length: \r\n\r\n
+
+AT+CIPSTART="TCP","192.168.1.107",9999
+AT+CIPSEND=15
+GET / HTTP/1.1\r\n
+
+
+
+AT+CIPSTART="TCP","api.openweathermap.org",80
+AT+CIPSEND=85
+GET /data/2.5/weather?q=San%20Francisco,us HTTP/1.0\r\nHost: api.openweathermap.org\r\n\r\n\r\n
+
+
+AT+CIPSTART="TCP","192.168.1.111",8080
+AT+CIPSEND=15
+GET / HTTP/1.1\r\n
+
+AT+CIPSEND=298
+GET / HTTP/1.1\r\nHost: 192.168.1.111:8124\r\nConnection: keep-alive\r\nCache-Control: no-cache\r\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) appleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, sdch\r\nAccept-Language: en-US,en;q=0.8\r\n
+
+313 - = 

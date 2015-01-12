@@ -1,0 +1,14 @@
+{
+  "name": "",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "dependencies": {
+    "body-parser": "^1.10.0",
+    "express": "^4.10.6",
+    "firebase": "^2.1.0"
+  },
+  "engine": {
+    "node": ">=0.6"
+  }
+}
