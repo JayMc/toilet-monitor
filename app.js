@@ -7,10 +7,8 @@ app.use(bodyParser.json());
 
 //Firebase references
 //The current visit
-var Firebase = require('firebase');
 var visitRef = new Firebase(config.firebaseUrl+'/visit');
 //Past visits
-var Firebase = require('firebase');
 var visitsRef = new Firebase(config.firebaseUrl+'/visits');
 
 //Express routes

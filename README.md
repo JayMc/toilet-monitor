@@ -24,7 +24,8 @@ AngularJS http://angularjs.org
 
 ## Android TODO
 Ionic with Android and Firebase library
-
+### dev
+start ionic server Android/toilet-monitor/ionic serve
 
 # IOT Traffic
 Arduino  >--HTTP POST data--> Node.js Server <--Websocket--> Firebase
@@ -33,3 +34,8 @@ Arduino  >--HTTP POST data--> Node.js Server <--Websocket--> Firebase
 Browser/Android Client <--Websocket--> Firebase
 
 Client Downloads Angular Frontend once at begining of visit from Node.js Server
+
+# Start dev
+npm install
+cd Android/toilet-monitor
+bower install

@@ -1,0 +1,10 @@
+<ion-view view-title="Visits">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="visit in visits" href="#/app/visits/{{visit.id}}">
+        {{visit.lightOn}}
+        {{visit.date}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
