@@ -1,5 +1,8 @@
 Server/node_modules/
 IOT/config.h
+Frontend/bower_components/
+
+
 
 # Logs
 logs
