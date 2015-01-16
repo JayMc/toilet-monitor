@@ -111,7 +111,7 @@ void checkPins(){
         //check if light level has changed
         if(roomLightState != newRoomLightState){
           dbgSerial.println("light level changed");
-          
+           
           data += "\"on";
           data += "\":";
 //          data += analogRead(A0);
