@@ -19,9 +19,10 @@ var visit = {};
 //Express routes
 //Receives IOT data
 app.post('/', function (req, res) {
-console.log('connection')
+console.log('connection..')
     //if light is passed in as on,
     if(req.body.on == 1){
+        console.log('  light on')
         //set light status in current visit and light on datetime to now
         visitRef.update({
             lightOn: true,
@@ -31,6 +32,7 @@ console.log('connection')
     }   
     //if light is passed in as off
     else if(req.body.on == 0){
+        console.log('  light off')
         //set light status to off and light off datetime to now
         visitRef.update({
             lightOn: false,
@@ -39,7 +41,7 @@ console.log('connection')
 
         //push current visit into visits if it is valid (has a lightOnAt and Off Datetime)
         if(typeof visit.lightOnAt !== 'undefined' && typeof visit.lightOffAt !== 'undefined'){
-            console.log('pushing into visits')
+            console.log('pushing current visit into visits')
             visitsRef.push({
                 lightOnAt: visit.lightOnAt,
                 lightOffAt: visit.lightOffAt,
