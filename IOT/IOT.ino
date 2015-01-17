@@ -29,7 +29,8 @@ const char SSID[] = incSSID;
 //#define SSID "boo" // your wifi ssid
 const char PASS[] = incPASS;
 //#define PASS = incPASS // your wifi password
-const int lightThreshold = incLightThreshold;
+//const int lightThreshold = incLightThreshold;
+int lightThreshold = 5;
 bool roomLightState = false;
 bool newRoomLightState = false;
 #define DST_IP "192.168.1.111" // IOT Server IP
@@ -77,6 +78,7 @@ void setup()
 }
 
 void loop(){
+        lightThreshold = map(analogRead(A5),0,1023,0,10);
         checkPins();
         delay(500);
 }
