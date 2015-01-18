@@ -33,8 +33,8 @@ const char PASS[] = incPASS;
 int lightThreshold = 5;
 bool roomLightState = false;
 bool newRoomLightState = false;
-#define DST_IP "192.168.1.111" // IOT Server IP
-#define DST_PORT 7777 // IOT Server port
+#define DST_IP incDST_IP 
+#define DST_PORT incDST_PORT 
 #define PIN_OFFSET 2 // how many pins to ignore, by default ignore first two (used for soft serial)
 #define PIN_MAX 12 // up to what pin to watch
 #define ERROR_LED 13 // LED to enable on startup error
@@ -43,8 +43,11 @@ SoftwareSerial dbgSerial(10, 11); // Debug Soft Serial RX, TX
 int currentInputState;
 int lastInputState[PIN_MAX + 1];
 
+
 void setup()
 {
+        pinMode(3, OUTPUT);
+        digitalWrite(3, HIGH);
         pinMode(A0, OUTPUT);
 	pinMode(ERROR_LED, OUTPUT);
 	Serial.begin(9600); // Works well
@@ -78,7 +81,7 @@ void setup()
 }
 
 void loop(){
-        lightThreshold = map(analogRead(A5),0,1023,0,10);
+        //lightThreshold = map(analogRead(A1),0,1023,0,10);
         checkPins();
         delay(500);
 }
@@ -101,6 +104,7 @@ void checkPins(){
 
         //get light level
         int roomVal = analogRead(A0);        
+        //Serial.println(roomVal);
         dbgSerial.println(roomVal);  
         dbgSerial.println(lightThreshold);        
         if(roomVal > lightThreshold){
@@ -113,6 +117,7 @@ void checkPins(){
         //check if light level has changed
         if(roomLightState != newRoomLightState){
           dbgSerial.println("light level changed");
+          digitalWrite(3, LOW);
            
           data += "\"on";
           data += "\":";
@@ -165,6 +170,7 @@ boolean sendData(String data){
 		if (c == '\r') dbgSerial.print('\n');
 	}*/
 	dbgSerial.println("Send Successful.");
+        digitalWrite(3, HIGH);
         delay(1000);
 	return true;
 }
